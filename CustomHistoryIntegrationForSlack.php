@@ -10,7 +10,7 @@ $channel = $_POST['channel_name'];
 $responseUrl = $_POST['response_url'];
 
 # Check the token and make sure the request is from your team 
-if($token != 'EA5hVwmBbcFsBk4nmeQH4K2K'){ #replace this with team token
+if($token != '<REPLACE WITH TEAM TOKEN>'){ #replace this with team token
   $msg = "The token for the slash command doesn't match. Check your script.";
   die($msg);
   echo $msg;
@@ -65,7 +65,7 @@ else
     {
 
 
-       $reply = "*History Fact for Today* \nIn ".$response_array["data"]["Events"][$randomFactInt]["year"].", ".$response_array["data"]["Events"][$randomFactInt]["text"]."";
+       $reply = "*History Fact for Today in ".$response_array["data"]["Events"][$randomFactInt]["year"]."* \n".$response_array["data"]["Events"][$randomFactInt]["text"]."";
 
        $ch = curl_init($responseUrl);
 
@@ -86,7 +86,7 @@ else
     }
     else
     {
-       $reply = "*History Fact for ".$text."* \nIn ".$response_array["data"]["Events"][$randomFactInt]["year"].", ".$response_array["data"]["Events"][$randomFactInt]["text"]."";
+       $reply = "*History Fact for ".$text." in ".$response_array["data"]["Events"][$randomFactInt]["year"]."* \n".$response_array["data"]["Events"][$randomFactInt]["text"]."";
 
 
           $ch = curl_init($responseUrl);
